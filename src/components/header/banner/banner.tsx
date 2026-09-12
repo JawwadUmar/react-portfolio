@@ -52,7 +52,7 @@ const HeaderBanner = () => {
                   2000,
                   "Full Stack Developer",
                   2000,
-                  "Backend Developer",
+                  "AI Engineer",
                   2000,
                 ]}
                 speed={30}
@@ -97,7 +97,7 @@ const HeaderBanner = () => {
               className="mx-auto flex max-w-max gap-x-6 text-[20px] lg:mx-0"
             >
               <a
-                href="https://github.com/jawwadumar99"
+                href="https://github.com/JawwadUmar"
                 target="_blank"
                 rel="noopener"
               >

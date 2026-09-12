@@ -81,7 +81,7 @@ const Contact = () => {
             <h4>GitHub</h4>
             <h5>Jawwad Umar</h5>
             <a
-              href="https://github.com/jawwadumar99"
+              href="https://github.com/JawwadUmar"
               target="_blank"
               className="inline-block p-[0.5rem] text-[0.9rem]"
               rel="noopener"

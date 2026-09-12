@@ -48,7 +48,7 @@ const Portfolio = () => {
       <div className="mt-[3.5rem] flex justify-center">
         <p className="text-[#ffffffb8]">
           For more visit{" "}
-          <a href="https://github.com/jawwadumar99" target="_blank" rel="noopener">
+          <a href="https://github.com/JawwadUmar" target="_blank" rel="noopener">
             <span className="cursor-pointer font-bold text-primary">
               My Github Profile✌️
             </span>

@@ -53,7 +53,7 @@ const Footer = () => {
         </a>
 
         <a
-          href="https://github.com/jawwadumar99"
+          href="https://github.com/JawwadUmar"
           target="_blank"
           rel="noopener"
         >
