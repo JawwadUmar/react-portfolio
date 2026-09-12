@@ -45,7 +45,7 @@ const Footer = () => {
           <FiTwitter />
         </a>
         <a
-          href="https://www.https://www.linkedin.com/in/jawwad-umar"
+          href="https://www.linkedin.com/in/jawwad-umar"
           target="_blank"
           rel="noopener"
         >
