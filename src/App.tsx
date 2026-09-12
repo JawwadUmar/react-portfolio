@@ -12,6 +12,7 @@ import {
   Navbar,
   Portfolio,
   Services,
+  CodingProfiles,
 } from "./index";
 
 interface AppContextValue {
@@ -36,7 +37,7 @@ function App() {
         <ProfessionalExperience />
         <Experience />
         <Services />
-        
+        <CodingProfiles />
 
         {/* <Testimonials /> */}
         <Contact />
