@@ -5,7 +5,7 @@ export const data = [
     title: "VitaTrack AI",
     subtitle:
       "A full-stack health journaling web app built with Angular and Go (Gin). Features Amazon Bedrock for AI-driven insights, AWS Textract for document analysis, and AI summarization of medical reports. Deployed on Google Cloud Run with Docker.",
-    github: "https://github.com/JawwadUmar/VitaTrack-AI",
+    github: "https://github.com/JawwadUmar/vitaTrack.ai-",
     liveUrl: "#",
   },
   {
