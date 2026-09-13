@@ -4,6 +4,8 @@ import toast from "react-hot-toast";
 import { FaGithub } from "react-icons/fa";
 import { ImLinkedin2 } from "react-icons/im";
 import { SiGmail } from "react-icons/si";
+import { saveToSheet } from "../../utils/sheetApi";
+import { sendEmailForm } from "../../utils/sendEmailApi";
 
 const Contact = () => {
   // this holds the cred of the user
@@ -12,6 +14,7 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const notify = (message: string) => toast(message);
 
@@ -27,22 +30,38 @@ const Contact = () => {
     });
   }
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    emailjs
-      .sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICEID!,
-        import.meta.env.VITE_EMAILJS_TEMPLATEID!,
-        e.currentTarget,
-        import.meta.env.VITE_EMAILJS_PUBLICKEY!
-      )
-      .then((result) => {
-        setFormData({ fullName: "", email: "", message: "" });
-        notify("The message was sent successfully!");
-      })
-      .catch((error) => {
-        notify("Your message could not be sent.");
-      });
+
+    if (!formData.fullName.trim() || !formData.email.trim() || !formData.message.trim()) {
+      notify("Please fill in all fields.");
+      return;
+    }
+
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+    const formTarget = e.currentTarget;
+
+    try {
+      const payload = {
+        Name: formData.fullName,
+        Email: formData.email,
+        Message: formData.message,
+        Timestamp: new Date().toISOString(),
+      };
+
+      await saveToSheet(payload);
+
+      // await sendEmailForm(formTarget);
+
+      setFormData({ fullName: "", email: "", message: "" });
+      notify("The message was sent successfully!");
+    } catch (error) {
+      notify("Your message could not be sent. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
   return (
     <section id="contact">
@@ -118,8 +137,8 @@ const Contact = () => {
             onChange={handleChange}
             required
           />
-          <button type="submit" className="btn btn-primary mt-2 rounded-2xl">
-            Send Message
+          <button type="submit" className="btn btn-primary mt-2 rounded-2xl" disabled={isSubmitting}>
+            {isSubmitting ? "Sending..." : "Send Message"}
           </button>
         </form>
       </div>
